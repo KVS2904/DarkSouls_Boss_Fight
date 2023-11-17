@@ -72,3 +72,7 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Special folders in Content. Rest is ignored
+Content/*
+!Content/Blueprints/
