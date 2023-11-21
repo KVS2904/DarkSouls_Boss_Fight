@@ -268,7 +268,7 @@ float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 	SetMovingForward(false);
 	bStumbling = true;
 
-	int AnimationIndex;
+int32 AnimationIndex;
 	do
 	{
 		AnimationIndex = FMath::RandRange(0, TakeHit_StumbleBackwards.Num() - 1);

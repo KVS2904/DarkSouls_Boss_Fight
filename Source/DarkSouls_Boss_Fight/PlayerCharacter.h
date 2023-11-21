@@ -77,11 +77,11 @@ public:
 	bool bRolling = false;
 	FRotator RollRotation;
 
-	int AttackIndex = 0;
+	int32 AttackIndex = 0;
 	float TargetLockDistance = 1500.0f;
 
 	TArray<class AActor*> NearbyEnemies;
-	int LastStumbleIndex;
+	int32 LastStumbleIndex;
 
 	FVector InputDirection;
 
@@ -136,7 +136,7 @@ public:
 		return Weapon;
 	}
 
-	private:
-		float RollingDistance = 600.f;
-		float MovingBackwardsDistance = 40.f;
+private:
+	float RollingDistance = 600.f;
+	float MovingBackwardsDistance = 40.f;
 };
