@@ -83,11 +83,11 @@ float AEnemyBoss::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent
 	{
 		return 0.f;
 	}
-	if (QuickHitsTaken == 0 || GetWorld()->GetTimeSeconds() - QuickHitsTimestamp <= 1.5f)
+	if (QuickHitsTaken == 0 || GetWorld()->GetTimeSeconds() - QuickHitsTimestamp <= 1.f)
 	{
 		QuickHitsTaken++;
 		QuickHitsTimestamp = GetWorld()->GetTimeSeconds();
-		if (QuickHitsTaken >= 3)
+		if (QuickHitsTaken >= 4)
 		{
 			bInterruptable = false;
 		}

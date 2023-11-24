@@ -17,8 +17,6 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
-	virtual void BeginPlay() override;
-
 	AActor* Target;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")

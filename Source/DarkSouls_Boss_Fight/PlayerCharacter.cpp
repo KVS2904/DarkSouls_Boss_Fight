@@ -3,18 +3,18 @@
 
 #include "PlayerCharacter.h"
 
-#include "GameFramework/Actor.h"
+#include "Camera/CameraComponent.h"
 #include "Camera/CameraShakeBase.h"
-#include "LegacyCameraShake.h"
+#include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
+#include "EnemyBase.h"
+#include "GameFramework/Actor.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Components/CapsuleComponent.h"
-#include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
-#include "EnemyBase.h"
+#include "LegacyCameraShake.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -78,7 +78,7 @@ void APlayerCharacter::BeginPlay()
 
 	TSet<AActor*> NearActors;
 	EnemyDetectionCollider->GetOverlappingActors(NearActors);
-	for (const auto EnemyActor : NearActors)
+	for (auto* EnemyActor : NearActors)
 	{
 		if (Cast<AEnemyBase>(EnemyActor))
 		{
@@ -91,7 +91,7 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	FocusTarget();
+	FocusTarget();//should we toggle of combat mode
 	if (bRolling)
 	{
 		AddMovementInput(GetActorForwardVector(), RollingDistance * GetWorld()->GetDeltaSeconds());
@@ -268,7 +268,7 @@ float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 	SetMovingForward(false);
 	bStumbling = true;
 
-int32 AnimationIndex;
+	int32 AnimationIndex;
 	do
 	{
 		AnimationIndex = FMath::RandRange(0, TakeHit_StumbleBackwards.Num() - 1);

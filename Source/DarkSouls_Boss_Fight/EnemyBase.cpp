@@ -183,7 +183,7 @@ void AEnemyBase::StateStumble()
 	{
 		if (bMovingBackwards)
 		{
-			AddMovementInput(-GetActorForwardVector(), 40.f * GetWorld()->GetDeltaSeconds());
+			AddMovementInput(-GetActorForwardVector(), 10.f * GetWorld()->GetDeltaSeconds());
 		}
 	}
 	else

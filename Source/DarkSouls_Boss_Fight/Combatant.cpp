@@ -11,13 +11,6 @@ ACombatant::ACombatant()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-// Called when the game starts or when spawned
-void ACombatant::BeginPlay()
-{
-	Super::BeginPlay();
-
-}
-
 // Called every frame
 void ACombatant::Tick(float DeltaTime)
 {
